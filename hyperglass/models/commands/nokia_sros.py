@@ -13,8 +13,8 @@ class _IPv4(CommandSet):
     bgp_community: StrictStr = "/show router bgp routes community {target}"
     bgp_aspath: StrictStr = "/show router bgp routes aspath-regex {target}"
     bgp_route: StrictStr = "/show router bgp routes {target} ipv4 hunt"
-    ping: StrictStr = "/ping {target} source-address {source}"
-    traceroute: StrictStr = "/traceroute {target} source-address {source} wait 2 seconds"
+    ping: StrictStr = "/ping {target} source {source}"
+    traceroute: StrictStr = "/traceroute {target} source {source} wait 10"
 
 
 class _IPv6(CommandSet):
@@ -23,8 +23,8 @@ class _IPv6(CommandSet):
     bgp_community: StrictStr = "/show router bgp routes community {target}"
     bgp_aspath: StrictStr = "/show router bgp routes aspath-regex {target}"
     bgp_route: StrictStr = "/show router bgp routes {target} ipv6 hunt"
-    ping: StrictStr = "/ping {target} source-address {source}"
-    traceroute: StrictStr = "/traceroute {target} source-address {source} wait 2 seconds"
+    ping: StrictStr = "/ping {target} source {source}"
+    traceroute: StrictStr = "/traceroute {target} source {source} wait 10"
 
 
 class _VPNIPv4(CommandSet):
@@ -33,8 +33,8 @@ class _VPNIPv4(CommandSet):
     bgp_community: StrictStr = "/show router bgp routes community {target}"
     bgp_aspath: StrictStr = "/show router bgp routes aspath-regex {target}"
     bgp_route: StrictStr = "/show router bgp routes {target} vpn-ipv4 hunt"
-    ping: StrictStr = "/ping {target} source-address {source}"
-    traceroute: StrictStr = "/traceroute {target} source-address {source} wait 2 seconds"
+    ping: StrictStr = "/ping {target} source {source}"
+    traceroute: StrictStr = "/traceroute {target} source {source} wait 10"
 
 
 class _VPNIPv6(CommandSet):
@@ -43,8 +43,8 @@ class _VPNIPv6(CommandSet):
     bgp_community: StrictStr = "/show router bgp routes community {target}"
     bgp_aspath: StrictStr = "/show router bgp routes aspath-regex {target}"
     bgp_route: StrictStr = "/show router bgp routes {target} vpn-ipv6 hunt"
-    ping: StrictStr = "/ping {target} source-address {source}"
-    traceroute: StrictStr = "/traceroute {target} source-address {source} wait 2 seconds"
+    ping: StrictStr = "/ping {target} source {source}"
+    traceroute: StrictStr = "/traceroute {target} source {source} wait 10"
 
 
 class NokiaSROSCommands(CommandGroup):

@@ -14,7 +14,7 @@ class _IPv4(CommandSet):
     bgp_aspath: StrictStr = 'show route protocol bgp table inet.0 aspath-regex "{target}"'
     bgp_community: StrictStr = "show route protocol bgp table inet.0 community {target}"
     ping: StrictStr = "ping inet {target} count 5 source {source}"
-    traceroute: StrictStr = "traceroute inet {target} wait 1 source {source}"
+    traceroute: StrictStr = "traceroute inet {target} wait 1 source {source} no-resolve"
 
 
 class _IPv6(CommandSet):
@@ -24,7 +24,7 @@ class _IPv6(CommandSet):
     bgp_aspath: StrictStr = 'show route protocol bgp table inet6.0 aspath-regex "{target}"'
     bgp_community: StrictStr = "show route protocol bgp table inet6.0 community {target}"
     ping: StrictStr = "ping inet6 {target} count 5 source {source}"
-    traceroute: StrictStr = "traceroute inet6 {target} wait 2 source {source}"
+    traceroute: StrictStr = "traceroute inet6 {target} wait 2 source {source} no-resolve"
 
 
 class _VPNIPv4(CommandSet):
@@ -34,7 +34,7 @@ class _VPNIPv4(CommandSet):
     bgp_aspath: StrictStr = 'show route protocol bgp table {vrf}.inet.0 aspath-regex "{target}"'
     bgp_community: StrictStr = "show route protocol bgp table {vrf}.inet.0 community {target}"
     ping: StrictStr = "ping inet routing-instance {vrf} {target} count 5 source {source}"
-    traceroute: StrictStr = "traceroute inet routing-instance {vrf} {target} wait 1 source {source}"
+    traceroute: StrictStr = "traceroute inet routing-instance {vrf} {target} wait 1 source {source} no-resolve"
 
 
 class _VPNIPv6(CommandSet):
@@ -44,7 +44,7 @@ class _VPNIPv6(CommandSet):
     bgp_aspath: StrictStr = 'show route protocol bgp table {vrf}.inet6.0 aspath-regex "{target}"'
     bgp_community: StrictStr = "show route protocol bgp table {vrf}.inet6.0 community {target}"
     ping: StrictStr = "ping inet6 routing-instance {vrf} {target} count 5 source {source}"
-    traceroute: StrictStr = "traceroute inet6 routing-instance {vrf} {target} wait 2 source {source}"
+    traceroute: StrictStr = "traceroute inet6 routing-instance {vrf} {target} wait 2 source {source} no-resolve"
 
 
 _structured = CommandGroup(
@@ -53,28 +53,28 @@ _structured = CommandGroup(
         bgp_aspath='show route protocol bgp table inet.0 aspath-regex "{target}" detail | display xml',
         bgp_community="show route protocol bgp table inet.0 community {target} detail | display xml",
         ping="ping inet {target} count 5 source {source}",
-        traceroute="traceroute inet {target} wait 1 source {source}",
+        traceroute="traceroute inet {target} wait 1 source {source} no-resolve",
     ),
     ipv6_default=CommandSet(
         bgp_route="show route protocol bgp table inet6.0 {target} best detail | display xml",
         bgp_aspath='show route protocol bgp table inet6.0 aspath-regex "{target}" detail | display xml',
         bgp_community="show route protocol bgp table inet6.0 community {target} detail | display xml",
         ping="ping inet6 {target} count 5 source {source}",
-        traceroute="traceroute inet6 {target} wait 2 source {source}",
+        traceroute="traceroute inet6 {target} wait 2 source {source} no-resolve",
     ),
     ipv4_vpn=CommandSet(
         bgp_route="show route protocol bgp table {vrf}.inet.0 {target} best detail | display xml",
         bgp_aspath='show route protocol bgp table {vrf}.inet.0 aspath-regex "{target}" detail | display xml',
         bgp_community="show route protocol bgp table {vrf}.inet.0 community {target} detail | display xml",
         ping="ping inet routing-instance {vrf} {target} count 5 source {source}",
-        traceroute="traceroute inet routing-instance {vrf} {target} wait 1 source {source}",
+        traceroute="traceroute inet routing-instance {vrf} {target} wait 1 source {source} no-resolve",
     ),
     ipv6_vpn=CommandSet(
         bgp_route="show route protocol bgp table {vrf}.inet6.0 {target} best detail | display xml",
         bgp_aspath='show route protocol bgp table {vrf}.inet6.0 aspath-regex "{target}" detail | display xml',
         bgp_community="show route protocol bgp table {vrf}.inet6.0 community {target} detail | display xml",
         ping="ping inet6 routing-instance {vrf} {target} count 5 source {source}",
-        traceroute="traceroute inet6 routing-instance {vrf} {target} wait 2 source {source}",
+        traceroute="traceroute inet6 routing-instance {vrf} {target} wait 2 source {source} no-resolve",
     ),
 )
 

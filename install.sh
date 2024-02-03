@@ -434,7 +434,7 @@ install_app() {
     [ -d "/tmp/hyperglass" ] && rm -rf /tmp/hyperglass
     [ -d "/tmp/build" ] && rm -rf /tmp/build
 
-    git clone https://github.com/remontti/hyperglass.git /tmp/hyperglass
+    git clone https://github.com/clayberF/hyperglass.git /tmp/hyperglass
     cd /tmp/hyperglass
     poetry build
     mkdir /tmp/build

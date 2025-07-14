@@ -78,12 +78,12 @@ NokiaSROS_Ping = BuiltinDirective(
         RuleWithIPv4(
             condition="0.0.0.0/0",
             action="permit",
-            command="/ping {target} source-address {source4}",
+            command="/ping {target} source {source4}",
         ),
         RuleWithIPv6(
             condition="::/0",
             action="permit",
-            command="/ping {target} source-address {source6}",
+            command="/ping {target} source {source6}",
         ),
     ],
     field=Text(description="IP Address, Prefix, or Hostname"),
@@ -97,12 +97,12 @@ NokiaSROS_Traceroute = BuiltinDirective(
         RuleWithIPv4(
             condition="0.0.0.0/0",
             action="permit",
-            command="/traceroute {target} source-address {source4} wait 2 seconds",
+            command="/traceroute {target} source {source4} wait 10 seconds",
         ),
         RuleWithIPv6(
             condition="::/0",
             action="permit",
-            command="/traceroute {target} source-address {source6} wait 2 seconds",
+            command="/traceroute {target} source {source6} wait 10 seconds",
         ),
     ],
     field=Text(description="IP Address, Prefix, or Hostname"),
